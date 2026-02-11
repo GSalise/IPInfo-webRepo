@@ -1,6 +1,9 @@
 # IP Info Web
 
 This project is a Vite powered static website that serves as the frontend of IP Info API.
+<br/>
+<br/>
+You can access the website at https://ipdetails.dcism.org/
 
 ## Requirements
 

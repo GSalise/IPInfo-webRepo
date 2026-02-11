@@ -6,15 +6,11 @@ type RequestType = "self" | "search";
 
 async function fetchSelfIPInfo(): Promise<IPInfoData> {
   const token = localStorage.getItem("authToken");
-  const response = await axios.get(
-    "https://ipinfocheck.dcism.org/api/ipinfo",
-    // "http://localhost:20179/api/ipinfo",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await axios.get("http://localhost:20179/api/ipinfo", {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
-  );
+  });
 
   const parsedResponse = IPInfoSchema.safeParse(response.data);
   if (!parsedResponse.success) {
@@ -26,8 +22,7 @@ async function fetchSelfIPInfo(): Promise<IPInfoData> {
 async function searchIPInfo(requestedIP: string): Promise<IPInfoData> {
   const token = localStorage.getItem("authToken");
   const response = await axios.get(
-    `https://ipinfocheck.dcism.org/api/ipinfo/search/${requestedIP}`,
-    // `http://localhost:20179/api/ipinfo/search/${requestedIP}`,
+    `http://localhost:20179/api/ipinfo/search/${requestedIP}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

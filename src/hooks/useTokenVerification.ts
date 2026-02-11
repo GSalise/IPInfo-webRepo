@@ -10,7 +10,7 @@ async function verifyToken(): Promise<boolean> {
   }
 
   const response = await axios.post(
-    "https://ipinfocheck.dcism.org/api/verify",
+    "http://localhost:20179/api/verify",
     {},
     {
       headers: {

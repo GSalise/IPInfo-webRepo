@@ -8,14 +8,10 @@ async function loginToApi(
   email: string,
   password: string,
 ): Promise<AuthResponse> {
-  const response = await axios.post(
-    "https://ipinfocheck.dcism.org/api/login",
-    // "http://localhost:20179/api/login",
-    {
-      email,
-      password,
-    },
-  );
+  const response = await axios.post("http://localhost:20179/api/login", {
+    email,
+    password,
+  });
   const parsedResponse = AuthResponseSchema.safeParse(response.data);
   if (!parsedResponse.success) {
     throw new Error("Invalid response from API");
@@ -27,14 +23,10 @@ async function registerToApi(
   email: string,
   password: string,
 ): Promise<AuthResponse> {
-  const response = await axios.post(
-    "https://ipinfocheck.dcism.org/api/register",
-    // "http://localhost:20179/api/register",
-    {
-      email,
-      password,
-    },
-  );
+  const response = await axios.post("http://localhost:20179/api/register", {
+    email,
+    password,
+  });
   const parsedResponse = AuthResponseSchema.safeParse(response.data);
   if (!parsedResponse.success) {
     throw new Error("Invalid response from API");

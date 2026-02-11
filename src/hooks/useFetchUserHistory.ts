@@ -7,14 +7,11 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 async function fetchUserHistory(): Promise<IPInfoWithHistoryIdData[]> {
   const token = localStorage.getItem("authToken");
-  const response = await axios.get(
-    "https://ipinfocheck.dcism.org/api/history",
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+  const response = await axios.get("http://localhost:20179/api/history", {
+    headers: {
+      Authorization: `Bearer ${token}`,
     },
-  );
+  });
   console.log("API Response for user history:", response.data);
   const parsedResponse = IPInfoWithHistoryListSchema.safeParse(response.data);
   if (!parsedResponse.success) {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function deleteUserHistory(userHistoryIds: number[]) {
   const token = localStorage.getItem("authToken");
-  await axios.delete(`https://ipinfocheck.dcism.org/api/history`, {
+  await axios.delete(`http://localhost:20179/api/history`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
